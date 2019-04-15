@@ -1,0 +1,36 @@
+{
+  "name": "@molit/fhir-api",
+  "version": "1.0.3",
+  "description": "This Package contains the molit-fhir-api",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./index.js test",
+    "doc": "jsdoc index.js README.md -d ./jsdoc/",
+    "build": "babel index.js --out-dir dist"
+  },
+  "keywords": [
+    "FHIR",
+    "API"
+  ],
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.15.3",
+    "eslint-config-last": "0.0.5",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.16.4"
+  },
+  "author": "MOLIT Institut gGmbH",
+  "license": "Apache-2.0"
+}

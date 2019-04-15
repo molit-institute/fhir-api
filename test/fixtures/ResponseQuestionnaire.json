@@ -1,0 +1,140 @@
+{
+    "resourceType": "Questionnaire",
+    "id": "202",
+    "meta": {
+        "versionId": "7",
+        "lastUpdated": "2018-07-16T11:57:28.838+02:00"
+    },
+    "contained": [{
+        "resourceType": "ValueSet",
+        "id": "answers5",
+        "name": "Answers5",
+        "title": "Answers5",
+        "status": "active",
+        "compose": {
+            "include": [{
+                "system": "http://molit.eu/qlq-30",
+                "concept": [{
+                        "code": "A1",
+                        "display": "Überhaupt nicht"
+                    },
+                    {
+                        "code": "A2",
+                        "display": "Fast nicht"
+                    },
+                    {
+                        "code": "A3",
+                        "display": "Wenig"
+                    },
+                    {
+                        "code": "A4",
+                        "display": "Mäßig"
+                    },
+                    {
+                        "code": "A5",
+                        "display": "Sehr"
+                    }
+                ]
+            }]
+        }
+    }],
+    "identifier": [{
+        "system": "http://molit.eu/fhir/questionnaire",
+        "value": "fanta-pb Questionnaire"
+    }],
+    "title": "Fanta-FP FHIR Choice Testfragebogen",
+    "status": "active",
+    "date": "2018-06-23T13:16:00+01:00",
+    "publisher": "Molit Institut",
+    "description": "Fanta-Fb ist ein Fragebogen zum testen aller möglicherweise auftretenden Fragetypen in einem Fagebogen.",
+    "subjectType": [
+        "Patient"
+    ],
+    "item": [{
+            "linkId": "1",
+            "prefix": "1.",
+            "text": "Allgemein",
+            "type": "group",
+            "item": [{
+                    "linkId": "1.2",
+                    "prefix": "1.2",
+                    "text": "Geben Sie bitte Ihr Alter an",
+                    "type": "integer",
+                    "required": true
+                },
+                {
+                    "linkId": "1.3",
+                    "prefix": "1.3",
+                    "text": "Geben Sie bitte Ihr Gewicht an (z.B 80,5)",
+                    "type": "decimal"
+                }
+            ]
+        },
+        {
+            "linkId": "2",
+            "prefix": "2.",
+            "text": "Datum und Uhrzeit",
+            "type": "group",
+            "item": [{
+                    "linkId": "2.1",
+                    "prefix": "2.1",
+                    "text": "Geben Sie bitte das heutige Datum an",
+                    "type": "date"
+                },
+                {
+                    "linkId": "2.2",
+                    "prefix": "2.2",
+                    "text": "Geben Sie bitte die aktuelle Uhrzeit an (z.B 12:34)",
+                    "type": "time"
+                },
+                {
+                    "linkId": "2.3",
+                    "prefix": "2.3",
+                    "text": "Geben Sie bitte Datum und Uhrzeit an (z.B 12.11.2017 12:34)",
+                    "type": "dateTime"
+                }
+            ]
+        },
+        {
+            "linkId": "3",
+            "prefix": "3.",
+            "text": "Url",
+            "type": "group",
+            "item": [{
+                    "linkId": "3.1",
+                    "prefix": "3.1",
+                    "text": "Haben Sie sich schonmal im Internet über Krankheiten informiert?",
+                    "type": "boolean"
+                },
+                {
+                    "linkId": "3.2",
+                    "prefix": "3.2",
+                    "text": "Geben sie bitte die Adresse der Website an",
+                    "type": "url"
+                }
+            ]
+        },
+        {
+            "linkId": "4",
+            "prefix": "4.",
+            "text": "Haben Sie heute normal gegessen?",
+            "type": "boolean"
+        },
+        {
+            "linkId": "5",
+            "prefix": "5.",
+            "text": "Waren Sie heute sportlich aktiv?",
+            "type": "choice",
+            "repeats": true,
+            "options": {
+                "reference": "#answers5"
+            }
+        },
+        {
+            "linkId": "7",
+            "prefix": "7.",
+            "text": "Sonst noch etwas?",
+            "type": "string"
+        }
+    ]
+}

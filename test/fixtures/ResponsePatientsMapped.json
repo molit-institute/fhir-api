@@ -1,0 +1,1146 @@
+[
+  {
+    "resourceType": "Patient",
+    "id": "6",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-04-17T10:44:57.506+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Maxi <b>MUSTERFRAU </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12000</td></tr><tr><td>Date of birth</td><td><span>11 September 1960</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "system": "http://vitu.molit.eu/Patient",
+        "value": "12000"
+      }
+    ],
+    "name": [
+      {
+        "text": "Maxi Musterfrau",
+        "family": "Musterfrau",
+        "given": ["Maxi"]
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1960-09-11"
+  },
+  {
+    "resourceType": "Patient",
+    "id": "15",
+    "meta": {
+      "versionId": "2",
+      "lastUpdated": "2018-05-02T16:20:28.044+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Ricky <b>ROCK </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>TestValueDerEch1te</td></tr><tr><td>Address</td><td><span>In der Straße 123 </span><br/><span>Dortmund </span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "system": "http://dit2017.de",
+        "value": "TestValueDerEch1te"
+      }
+    ],
+    "name": [
+      {
+        "family": "Rock",
+        "given": ["Ricky"]
+      }
+    ],
+    "gender": "male",
+    "address": [
+      {
+        "city": "Bochum"
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "16",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T14:57:33.448+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Peter James <b>CHALMERS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12345</td></tr><tr><td>Address</td><td><span>534 Erewhon St </span><br/><span>PleasantVille </span><span>Vic </span></td></tr><tr><td>Date of birth</td><td><span>25 December 1974</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "fhir_comments": [
+          "    MRN assigned by ACME healthcare on 6-May 2001    "
+        ],
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "urn:oid:1.2.36.146.595.217.0.1",
+        "value": "12345",
+        "period": {
+          "start": "2001-05-06"
+        },
+        "assigner": {
+          "display": "Acme Healthcare"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "fhir_comments": ["    Peter James Chalmers, but called \"Jim\"    "],
+        "use": "official",
+        "family": "Chalmers",
+        "given": ["Peter", "James"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jim"]
+      },
+      {
+        "use": "maiden",
+        "_use": {
+          "fhir_comments": [
+            "   Maiden names apply for anyone whose name changes as a result of marriage - irrespective\n     of gender   "
+          ]
+        },
+        "family": "Windsor",
+        "given": ["Peter", "James"],
+        "period": {
+          "end": "2002"
+        }
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home",
+        "_use": {
+          "fhir_comments": ["    home communication details aren't known    "]
+        }
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 6473",
+        "use": "work",
+        "rank": 1
+      },
+      {
+        "system": "phone",
+        "value": "(03) 3410 5613",
+        "use": "mobile",
+        "rank": 2
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 8834",
+        "use": "old",
+        "period": {
+          "end": "2014"
+        }
+      }
+    ],
+    "gender": "male",
+    "_gender": {
+      "fhir_comments": ["    use FHIR code system for male / female    "]
+    },
+    "birthDate": "1974-12-25",
+    "_birthDate": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1974-12-25T14:35:45-05:00"
+        }
+      ]
+    },
+    "deceasedBoolean": false,
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+        "line": ["534 Erewhon St"],
+        "city": "PleasantVille",
+        "district": "Rainbow",
+        "state": "Vic",
+        "postalCode": "3999",
+        "period": {
+          "start": "1974-12-25"
+        }
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0131",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "du Marché",
+          "_family": {
+            "extension": [
+              {
+                "url":
+                  "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                "valueString": "VV"
+              }
+            ]
+          },
+          "given": ["Bénédicte"]
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+33 (237) 998327"
+          }
+        ],
+        "address": {
+          "use": "home",
+          "type": "both",
+          "line": ["534 Erewhon St"],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999",
+          "period": {
+            "start": "1974-12-25"
+          }
+        },
+        "gender": "female",
+        "period": {
+          "start": "2012",
+          "_start": {
+            "fhir_comments": [
+              "    The contact relationship started in 2012    "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "17",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:05:26.716+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Peter James <b>CHALMERS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12345</td></tr><tr><td>Address</td><td><span>534 Erewhon St </span><br/><span>PleasantVille </span><span>Vic </span></td></tr><tr><td>Date of birth</td><td><span>25 December 1974</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "fhir_comments": [
+          "    MRN assigned by ACME healthcare on 6-May 2001    "
+        ],
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "urn:1",
+        "value": "12345",
+        "period": {
+          "start": "2001-05-06"
+        },
+        "assigner": {
+          "display": "Acme Healthcare"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "fhir_comments": ["    Peter James Chalmers, but called \"Jim\"    "],
+        "use": "official",
+        "family": "Chalmers",
+        "given": ["Peter", "James"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jim"]
+      },
+      {
+        "use": "maiden",
+        "_use": {
+          "fhir_comments": [
+            "   Maiden names apply for anyone whose name changes as a result of marriage - irrespective\n     of gender   "
+          ]
+        },
+        "family": "Windsor",
+        "given": ["Peter", "James"],
+        "period": {
+          "end": "2002"
+        }
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home",
+        "_use": {
+          "fhir_comments": ["    home communication details aren't known    "]
+        }
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 6473",
+        "use": "work",
+        "rank": 1
+      },
+      {
+        "system": "phone",
+        "value": "(03) 3410 5613",
+        "use": "mobile",
+        "rank": 2
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 8834",
+        "use": "old",
+        "period": {
+          "end": "2014"
+        }
+      }
+    ],
+    "gender": "male",
+    "_gender": {
+      "fhir_comments": ["    use FHIR code system for male / female    "]
+    },
+    "birthDate": "1974-12-25",
+    "_birthDate": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1974-12-25T14:35:45-05:00"
+        }
+      ]
+    },
+    "deceasedBoolean": false,
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+        "line": ["534 Erewhon St"],
+        "city": "PleasantVille",
+        "district": "Rainbow",
+        "state": "Vic",
+        "postalCode": "3999",
+        "period": {
+          "start": "1974-12-25"
+        }
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0131",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "du Marché",
+          "_family": {
+            "extension": [
+              {
+                "url":
+                  "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                "valueString": "VV"
+              }
+            ]
+          },
+          "given": ["Bénédicte"]
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+33 (237) 998327"
+          }
+        ],
+        "address": {
+          "use": "home",
+          "type": "both",
+          "line": ["534 Erewhon St"],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999",
+          "period": {
+            "start": "1974-12-25"
+          }
+        },
+        "gender": "female",
+        "period": {
+          "start": "2012",
+          "_start": {
+            "fhir_comments": [
+              "    The contact relationship started in 2012    "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "18",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:06:57.042+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Peter James <b>CHALMERS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12345</td></tr><tr><td>Address</td><td><span>534 Erewhon St </span><br/><span>PleasantVille </span><span>Vic </span></td></tr><tr><td>Date of birth</td><td><span>25 December 1974</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "fhir_comments": [
+          "    MRN assigned by ACME healthcare on 6-May 2001    "
+        ],
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http:/supersystem",
+        "value": "12345",
+        "period": {
+          "start": "2001-05-06"
+        },
+        "assigner": {
+          "display": "Acme Healthcare"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "fhir_comments": ["    Peter James Chalmers, but called \"Jim\"    "],
+        "use": "official",
+        "family": "Chalmers",
+        "given": ["Peter", "James"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jim"]
+      },
+      {
+        "use": "maiden",
+        "_use": {
+          "fhir_comments": [
+            "   Maiden names apply for anyone whose name changes as a result of marriage - irrespective\n     of gender   "
+          ]
+        },
+        "family": "Windsor",
+        "given": ["Peter", "James"],
+        "period": {
+          "end": "2002"
+        }
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home",
+        "_use": {
+          "fhir_comments": ["    home communication details aren't known    "]
+        }
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 6473",
+        "use": "work",
+        "rank": 1
+      },
+      {
+        "system": "phone",
+        "value": "(03) 3410 5613",
+        "use": "mobile",
+        "rank": 2
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 8834",
+        "use": "old",
+        "period": {
+          "end": "2014"
+        }
+      }
+    ],
+    "gender": "male",
+    "_gender": {
+      "fhir_comments": ["    use FHIR code system for male / female    "]
+    },
+    "birthDate": "1974-12-25",
+    "_birthDate": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1974-12-25T14:35:45-05:00"
+        }
+      ]
+    },
+    "deceasedBoolean": false,
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+        "line": ["534 Erewhon St"],
+        "city": "PleasantVille",
+        "district": "Rainbow",
+        "state": "Vic",
+        "postalCode": "3999",
+        "period": {
+          "start": "1974-12-25"
+        }
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0131",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "du Marché",
+          "_family": {
+            "extension": [
+              {
+                "url":
+                  "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                "valueString": "VV"
+              }
+            ]
+          },
+          "given": ["Bénédicte"]
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+33 (237) 998327"
+          }
+        ],
+        "address": {
+          "use": "home",
+          "type": "both",
+          "line": ["534 Erewhon St"],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999",
+          "period": {
+            "start": "1974-12-25"
+          }
+        },
+        "gender": "female",
+        "period": {
+          "start": "2012",
+          "_start": {
+            "fhir_comments": [
+              "    The contact relationship started in 2012    "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "20",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:08:23.466+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Peter James <b>CHALMERS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12345</td></tr><tr><td>Address</td><td><span>534 Erewhon St </span><br/><span>PleasantVille </span><span>Vic </span></td></tr><tr><td>Date of birth</td><td><span>25 December 1974</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "fhir_comments": [
+          "    MRN assigned by ACME healthcare on 6-May 2001    "
+        ],
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http:/supersystem",
+        "value": "12345",
+        "period": {
+          "start": "2001-05-06"
+        },
+        "assigner": {
+          "display": "Acme Healthcare"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "fhir_comments": ["    Peter James Chalmers, but called \"Jim\"    "],
+        "use": "official",
+        "family": "Chalmers",
+        "given": ["Peter", "James"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jim"]
+      },
+      {
+        "use": "maiden",
+        "_use": {
+          "fhir_comments": [
+            "   Maiden names apply for anyone whose name changes as a result of marriage - irrespective\n     of gender   "
+          ]
+        },
+        "family": "Windsor",
+        "given": ["Peter", "James"],
+        "period": {
+          "end": "2002"
+        }
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home",
+        "_use": {
+          "fhir_comments": ["    home communication details aren't known    "]
+        }
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 6473",
+        "use": "work",
+        "rank": 1
+      },
+      {
+        "system": "phone",
+        "value": "(03) 3410 5613",
+        "use": "mobile",
+        "rank": 2
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 8834",
+        "use": "old",
+        "period": {
+          "end": "2014"
+        }
+      }
+    ],
+    "gender": "male",
+    "_gender": {
+      "fhir_comments": ["    use FHIR code system for male / female    "]
+    },
+    "birthDate": "1974-12-25",
+    "_birthDate": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1974-12-25T14:35:45-05:00"
+        }
+      ]
+    },
+    "deceasedBoolean": false,
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+        "line": ["534 Erewhon St"],
+        "city": "PleasantVille",
+        "district": "Rainbow",
+        "state": "Vic",
+        "postalCode": "3999",
+        "period": {
+          "start": "1974-12-25"
+        }
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0131",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "du Marché",
+          "_family": {
+            "extension": [
+              {
+                "url":
+                  "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                "valueString": "VV"
+              }
+            ]
+          },
+          "given": ["Bénédicte"]
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+33 (237) 998327"
+          }
+        ],
+        "address": {
+          "use": "home",
+          "type": "both",
+          "line": ["534 Erewhon St"],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999",
+          "period": {
+            "start": "1974-12-25"
+          }
+        },
+        "gender": "female",
+        "period": {
+          "start": "2012",
+          "_start": {
+            "fhir_comments": [
+              "    The contact relationship started in 2012    "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "24",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:12:15.342+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Peter James <b>CHALMERS </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>12345</td></tr><tr><td>Address</td><td><span>534 Erewhon St </span><br/><span>PleasantVille </span><span>Vic </span></td></tr><tr><td>Date of birth</td><td><span>25 December 1974</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "fhir_comments": [
+          "    MRN assigned by ACME healthcare on 6-May 2001    "
+        ],
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http:/supersystem",
+        "value": "12345",
+        "period": {
+          "start": "2001-05-06"
+        },
+        "assigner": {
+          "display": "Acme Healthcare"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "fhir_comments": ["    Peter James Chalmers, but called \"Jim\"    "],
+        "use": "official",
+        "family": "Chalmers",
+        "given": ["Peter", "James"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jim"]
+      },
+      {
+        "use": "maiden",
+        "_use": {
+          "fhir_comments": [
+            "   Maiden names apply for anyone whose name changes as a result of marriage - irrespective\n     of gender   "
+          ]
+        },
+        "family": "Windsor",
+        "given": ["Peter", "James"],
+        "period": {
+          "end": "2002"
+        }
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home",
+        "_use": {
+          "fhir_comments": ["    home communication details aren't known    "]
+        }
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 6473",
+        "use": "work",
+        "rank": 1
+      },
+      {
+        "system": "phone",
+        "value": "(03) 3410 5613",
+        "use": "mobile",
+        "rank": 2
+      },
+      {
+        "system": "phone",
+        "value": "(03) 5555 8834",
+        "use": "old",
+        "period": {
+          "end": "2014"
+        }
+      }
+    ],
+    "gender": "male",
+    "_gender": {
+      "fhir_comments": ["    use FHIR code system for male / female    "]
+    },
+    "birthDate": "1974-12-25",
+    "_birthDate": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+          "valueDateTime": "1974-12-25T14:35:45-05:00"
+        }
+      ]
+    },
+    "deceasedBoolean": false,
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "text": "534 Erewhon St PeasantVille, Rainbow, Vic  3999",
+        "line": ["534 Erewhon St"],
+        "city": "PleasantVille",
+        "district": "Rainbow",
+        "state": "Vic",
+        "postalCode": "3999",
+        "period": {
+          "start": "1974-12-25"
+        }
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/v2/0131",
+                "code": "N"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "du Marché",
+          "_family": {
+            "extension": [
+              {
+                "url":
+                  "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+                "valueString": "VV"
+              }
+            ]
+          },
+          "given": ["Bénédicte"]
+        },
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+33 (237) 998327"
+          }
+        ],
+        "address": {
+          "use": "home",
+          "type": "both",
+          "line": ["534 Erewhon St"],
+          "city": "PleasantVille",
+          "district": "Rainbow",
+          "state": "Vic",
+          "postalCode": "3999",
+          "period": {
+            "start": "1974-12-25"
+          }
+        },
+        "gender": "female",
+        "period": {
+          "start": "2012",
+          "_start": {
+            "fhir_comments": [
+              "    The contact relationship started in 2012    "
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "26",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:25:04.877+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Thomas <b>MEINNEUERNACHNAME </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>25250025</td></tr><tr><td>Address</td><td><span>MeineStraße </span><br/><span>Heilbronn </span><span>D </span></td></tr><tr><td>Date of birth</td><td><span>01 January 1970</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http://hs-heilbronn.de/matNr/Namingsystem",
+        "value": "25250025",
+        "period": {
+          "start": "1970-01-01"
+        },
+        "assigner": {
+          "display": "Hochschule Heilbronn"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "use": "official",
+        "family": "MeinNeuerNachname",
+        "given": ["Thomas"]
+      },
+      {
+        "use": "usual",
+        "given": ["Thomas"]
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home"
+      },
+      {
+        "system": "phone",
+        "value": "012301230123",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "meineMail@example.org",
+        "use": "home"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1970-01-01",
+    "address": [
+      {
+        "use": "home",
+        "line": ["MeineStraße"],
+        "city": "Heilbronn",
+        "state": "D",
+        "postalCode": "258741"
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "30",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:35:59.609+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Thomas <b>MEINNEUERNACHNAME </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>25250025</td></tr><tr><td>Address</td><td><span>MeineStraße </span><br/><span>Heilbronn </span><span>D </span></td></tr><tr><td>Date of birth</td><td><span>01 January 1970</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "use": "official",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http://hs-heilbronn.de/matNr/Namingsystem",
+        "value": "25250025",
+        "period": {
+          "start": "1970-01-01"
+        },
+        "assigner": {
+          "display": "Hochschule Heilbronn"
+        }
+      }
+    ],
+    "active": true,
+    "name": [
+      {
+        "use": "official",
+        "family": "MeinNeuerNachname",
+        "given": ["Thomas"]
+      },
+      {
+        "use": "usual",
+        "given": ["Thomas"]
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home"
+      },
+      {
+        "system": "phone",
+        "value": "012301230123",
+        "use": "work"
+      },
+      {
+        "system": "email",
+        "value": "meineMail@example.org",
+        "use": "home"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1970-01-01",
+    "address": [
+      {
+        "use": "home",
+        "line": ["MeineStraße"],
+        "city": "Heilbronn",
+        "state": "D",
+        "postalCode": "258741"
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "32",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-05-04T15:37:35.532+02:00"
+    },
+    "text": {
+      "status": "generated",
+      "div":
+        "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Jasmin <b>NEMEC </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>903040</td></tr><tr><td>Address</td><td><span>Ludwigsstraße 8 </span><br/><span>Heilbronn </span><span>BadenWuerttemberg </span></td></tr><tr><td>Date of birth</td><td><span>28 August 1995</span></td></tr></tbody></table></div>"
+    },
+    "identifier": [
+      {
+        "use": "usual",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0203",
+              "code": "MR"
+            }
+          ]
+        },
+        "system": "http://hs-heilbronn.de/matrNr/Namingsystem",
+        "value": "903040",
+        "period": {
+          "start": "2018-03-16"
+        },
+        "assigner": {
+          "display": "Hochschule Heilbronn"
+        }
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": "Nemec",
+        "given": ["Jasmin"]
+      },
+      {
+        "use": "usual",
+        "given": ["Jasmin"]
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home"
+      },
+      {
+        "system": "phone",
+        "value": "(0821) 0385321",
+        "use": "home"
+      },
+      {
+        "system": "email",
+        "value": "jasmin@example.org",
+        "use": "home"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1995-08-28",
+    "address": [
+      {
+        "use": "home",
+        "line": ["Ludwigsstraße 8"],
+        "city": "Heilbronn",
+        "state": "BadenWuerttemberg",
+        "postalCode": "74074"
+      }
+    ]
+  }
+]

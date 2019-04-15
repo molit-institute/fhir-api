@@ -1,0 +1,123 @@
+{
+    "resourceType": "QuestionnaireResponse",
+    "id": "232",
+    "meta": {
+      "versionId": "1",
+      "lastUpdated": "2018-07-23T11:02:09.112+02:00"
+    },
+    "status": "completed",
+    "authored": "2018-07-23T11:01:21+02:00",
+    "item": [
+      {
+        "linkId": "1",
+        "text": "Allgemein",
+        "item": [
+          {
+            "linkId": "1.2",
+            "text": "Geben Sie bitte Ihr Alter an",
+            "answer": [
+              {
+                "valueInteger": 22
+              }
+            ]
+          },
+          {
+            "linkId": "1.3",
+            "text": "Geben Sie bitte Ihr Gewicht an (z.B 80,5)",
+            "answer": [
+              {
+                "valueDecimal": 22
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "linkId": "2",
+        "text": "Datum und Uhrzeit",
+        "item": [
+          {
+            "linkId": "2.1",
+            "text": "Geben Sie bitte das heutige Datum an",
+            "answer": [
+              {
+                "valueDate": "2222-02-22"
+              }
+            ]
+          },
+          {
+            "linkId": "2.2",
+            "text": "Geben Sie bitte die aktuelle Uhrzeit an (z.B 12:34)",
+            "answer": [
+              {
+                "valueTime": "22:22"
+              }
+            ]
+          },
+          {
+            "linkId": "2.3",
+            "text": "Geben Sie bitte Datum und Uhrzeit an (z.B 12.11.2017 12:34)",
+            "answer": [
+              {
+                "valueDateTime": "2222-02-22T22:22:00+02:00"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "linkId": "3",
+        "text": "Url",
+        "item": [
+          {
+            "linkId": "3.1",
+            "text": "Haben Sie sich schonmal im Internet über Krankheiten informiert?",
+            "answer": [
+              {
+                "valueBoolean": true
+              }
+            ]
+          },
+          {
+            "linkId": "3.2",
+            "text": "Geben sie bitte die Adresse der Website an",
+            "answer": [
+              {
+                "valueUri": "www.ntv.de"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "linkId": "4",
+        "text": "Haben Sie heute normal gegessen?",
+        "answer": [
+          {
+            "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "linkId": "5",
+        "text": "Waren Sie heute sportlich aktiv?",
+        "answer": [
+          {
+            "valueCoding": {
+              "code": "A1",
+              "display": "Überhaupt nicht"
+            }
+          }
+        ]
+      },
+      {
+        "linkId": "7",
+        "text": "Sonst noch etwas?",
+        "answer": [
+          {
+            "valueString": "Dies ist eine test-response"
+          }
+        ]
+      }
+    ]
+  }
