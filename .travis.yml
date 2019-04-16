@@ -18,13 +18,6 @@ jobs:
     - stage: build
       name: babel
       script: npm run build
-    - stage: doc
-      name: jsdoc
-      before_script: npm i -g jsdoc
-      script: npm run doc
-    - stage: publish
-      name: npm release
-      if: tag IS present
       deploy:
         provider: npm
         script: echo "Deploying to npm ..."
@@ -33,3 +26,7 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+    - stage: doc
+      name: jsdoc
+      before_script: npm i -g jsdoc
+      script: npm run doc
