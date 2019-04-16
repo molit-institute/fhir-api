@@ -1,8 +1,9 @@
+## FHIR Api
+
 [![Build Status](https://travis-ci.org/molitinstitute/fhir-api.svg?branch=master)](https://travis-ci.org/molitinstitute/fhir-api)
+[![Coverage Status](https://coveralls.io/repos/github/molitinstitute/fhir-api/badge.svg?branch=master)](https://coveralls.io/github/molitinstitute/fhir-api?branch=master)
 ![npm](https://img.shields.io/npm/v/@molit/fhir-api.svg)
 ![NPM](https://img.shields.io/npm/l/@molit/fhir-api.svg)
-
-## FHIR Api
 
 This is an api library to handle FHIR resources.
 
