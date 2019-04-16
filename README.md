@@ -1,4 +1,4 @@
-## FHIR Api
+## FHIR API
 
 [![Build Status](https://travis-ci.org/molitinstitute/fhir-api.svg?branch=master)](https://travis-ci.org/molitinstitute/fhir-api)
 [![Coverage Status](https://coveralls.io/repos/github/molitinstitute/fhir-api/badge.svg?branch=master)](https://coveralls.io/github/molitinstitute/fhir-api?branch=master)
@@ -32,3 +32,7 @@ import { fetchQuestionnaires } from "@molit/fhir-api";
 
 let name = fetchQuestionnaires(fhirBaseUrl);
 ```
+
+### Documentation
+
+See full documentation here: https://molitinstitute.github.io/fhir-api/

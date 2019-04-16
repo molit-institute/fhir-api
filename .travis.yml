@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "10"
-  
+
 stages:
   - test
   - build
@@ -36,4 +36,4 @@ jobs:
         github_token: $GITHUB_TOKEN
         local_dir: jsdoc
         on:
-          branch: master
+          tags: true
