@@ -2,10 +2,25 @@ language: node_js
 node_js:
   - "10"
   
-before_script:
-  - npm install
+stages:
+  - test
+  - build
+  - doc
+  - publish
 
-script:
-  - npm run lint
-  - npm run build
-  - npm test
+jobs:
+  include:
+    - stage: test
+      name: lint
+      script: npm run lint
+    - name: test
+      script: npm run test
+    - stage: build
+      name: babel
+      script: npm run build
+    - stage: doc
+      before_script: npm i -g jsdoc
+      script: npm run doc
+    
+
+
