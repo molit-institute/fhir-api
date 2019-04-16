@@ -31,7 +31,6 @@ jsdoc
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 .idea
 node_modules
-package-lock.json
 .gitlab-ci.yml
 
 # Visual Studio Code
