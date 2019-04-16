@@ -4,7 +4,7 @@
 
 ## FHIR Api
 
-This is a api library to handle FHIR resources.
+This is an api library to handle FHIR resources.
 
 ### Installation
 
