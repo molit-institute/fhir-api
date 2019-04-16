@@ -24,6 +24,7 @@ jobs:
       script: npm run doc
     - stage: publish
       name: npm release
+      if: tag IS present
       deploy:
         provider: npm
         script: echo "Deploying to npm ..."
