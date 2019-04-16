@@ -15,6 +15,9 @@ jobs:
       script: npm run lint
     - name: jest
       script: npm run test
+    - name: coverage
+      script: npm run test && cat ./coverage/lcov.info | coveralls
+      if: branch = master
     - stage: build
       name: babel
       script: npm run build

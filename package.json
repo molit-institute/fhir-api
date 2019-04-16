@@ -25,6 +25,7 @@
     "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.3",
     "eslint-config-last": "0.0.5",
     "eslint-config-prettier": "^2.10.0",
