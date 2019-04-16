@@ -11,16 +11,24 @@ stages:
 jobs:
   include:
     - stage: test
-      name: lint
+      name: eslint
       script: npm run lint
-    - name: test
+    - name: jest
       script: npm run test
     - stage: build
       name: babel
       script: npm run build
     - stage: doc
+      name: jsdoc
       before_script: npm i -g jsdoc
       script: npm run doc
-    
-
-
+    - stage: publish
+      name: npm release
+      deploy:
+        provider: npm
+        script: echo "Deploying to npm ..."
+        email: "$NPM_EMAIL"
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
