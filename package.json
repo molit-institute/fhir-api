@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "This Package contains the molit-fhir-api",
   "main": "dist/index.js",
+  "repository": "github:molitinstitute/fhir-api",
   "scripts": {
     "test": "jest",
     "lint": "eslint ./index.js test",
