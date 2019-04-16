@@ -14,7 +14,7 @@ jobs:
       name: eslint
       script: npm run lint
     - name: jest
-      script: npm run test
+      script: npm run test && cat ./coverage/lcov.info | coveralls
     - stage: build
       name: babel
       script: npm run build
@@ -30,3 +30,10 @@ jobs:
       name: jsdoc
       before_script: npm i -g jsdoc
       script: npm run doc
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: jsdoc
+        on:
+          branch: master
