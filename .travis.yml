@@ -6,7 +6,8 @@ stages:
   - test
   - build
   - doc
-  - publish
+
+cache: npm
 
 jobs:
   include:
