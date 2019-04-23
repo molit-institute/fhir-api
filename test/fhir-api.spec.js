@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as fhirApi from "..";
+import * as fhirApi from "../index.js";
 
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
 import responseMetadata from "./fixtures/ResponseMetadata.json";
@@ -9,7 +9,7 @@ import responseQuestionnaire from "./fixtures/ResponseQuestionnaire.json";
 import responseGeneral from "./fixtures/ResponseGeneral";
 
 const FHIR_BASE_URL = "https://fhir.molit.eu/baseDstu3";
-const FHIR_BASE_URL_INVALID = "slfdsalöf";
+const FHIR_BASE_URL_INVALID = "slfdsaluztf";
 const RESOURCE_TYPE = "Patient";
 const RESOURCE_TYPE_INVALID = "Arizona";
 const ID = "209";

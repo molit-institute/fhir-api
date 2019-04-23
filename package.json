@@ -1,7 +1,7 @@
 {
   "name": "@molit/fhir-api",
   "version": "1.0.7",
-  "description": "This Package contains the molit-fhir-api",
+  "description": "This package can be used to access FHIR APIs",
   "main": "dist/index.js",
   "repository": "github:molitinstitute/fhir-api",
   "homepage": "https://molitinstitute.github.io/fhir-api/",
@@ -16,22 +16,19 @@
     "API"
   ],
   "dependencies": {
+    "@babel/polyfill": "^7.4.3",
     "axios": "^0.18.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-jest": "^23.6.0",
-    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "chai": "^4.2.0",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
-    "eslint-config-last": "0.0.5",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-prettier": "^2.7.0",
-    "jest": "^23.6.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest": "^24.7.1",
     "prettier": "^1.17.0"
   },
   "author": "MOLIT Institut gGmbH",

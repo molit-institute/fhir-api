@@ -8,7 +8,7 @@ import axios from "axios";
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchByUrl(url, params = {}, token) {
+export function fetchByUrl(url, params = {}, token) {
   if (!url) {
     throw new Error(
       "Fetching the resource(s) failed because the given url was null or undefined"
@@ -27,7 +27,7 @@ export async function fetchByUrl(url, params = {}, token) {
     params,
     headers
   };
-  return await axios.get(url, options);
+  return axios.get(url, options);
 }
 
 /**
@@ -40,7 +40,7 @@ export async function fetchByUrl(url, params = {}, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchResource(
+export function fetchResource(
   fhirBaseUrl,
   resourceType,
   id,
@@ -79,7 +79,7 @@ export async function fetchResource(
     headers
   };
 
-  return await axios.get(url, options);
+  return axios.get(url, options);
 }
 
 /**
@@ -91,12 +91,7 @@ export async function fetchResource(
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchResources(
-  fhirBaseUrl,
-  resourceType,
-  params = {},
-  token
-) {
+export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Fetching the resources failed because the given fhirBaseUrl was null or undefined"
@@ -123,7 +118,7 @@ export async function fetchResources(
     headers
   };
 
-  return await axios.get(url, options);
+  return axios.get(url, options);
 }
 
 /**
@@ -135,7 +130,7 @@ export async function fetchResources(
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchResourcesPost(
+export function fetchResourcesPost(
   fhirBaseUrl,
   resourceType,
   params = {},
@@ -172,7 +167,7 @@ export async function fetchResourcesPost(
     headers
   };
 
-  return await axios.post(url, urlSearchParams, options);
+  return axios.post(url, urlSearchParams, options);
 }
 
 /**
@@ -183,7 +178,7 @@ export async function fetchResourcesPost(
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function submitResource(fhirBaseUrl, resource, token) {
+export function submitResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Resource was not submitted because the given fhirBaseUrl was null or undefined"
@@ -216,7 +211,7 @@ export async function submitResource(fhirBaseUrl, resource, token) {
     headers
   };
 
-  return await axios.post(url, resource, options);
+  return axios.post(url, resource, options);
 }
 
 /**
@@ -227,7 +222,7 @@ export async function submitResource(fhirBaseUrl, resource, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function updateResource(fhirBaseUrl, resource, token) {
+export function updateResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Resource was not submitted because the given fhirBaseUrl was null or undefined"
@@ -266,7 +261,7 @@ export async function updateResource(fhirBaseUrl, resource, token) {
     headers
   };
 
-  return await axios.put(url, resource, options);
+  return axios.put(url, resource, options);
 }
 
 /**
@@ -278,12 +273,7 @@ export async function updateResource(fhirBaseUrl, resource, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function updateResourceByUrl(
-  fhirBaseUrl,
-  resource,
-  params = {},
-  token
-) {
+export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Resource was not submitted because the given fhirBaseUrl was null or undefined"
@@ -317,7 +307,7 @@ export async function updateResourceByUrl(
     headers
   };
 
-  return await axios.put(url, resource, options);
+  return axios.put(url, resource, options);
 }
 
 /**
@@ -328,7 +318,7 @@ export async function updateResourceByUrl(
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function deleteResource(fhirBaseUrl, resource, token) {
+export function deleteResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Resource was not deleted because the given fhirBaseUrl was null or undefined"
@@ -367,7 +357,7 @@ export async function deleteResource(fhirBaseUrl, resource, token) {
     headers
   };
 
-  return await axios.delete(url, options);
+  return axios.delete(url, options);
 }
 
 /**
@@ -378,7 +368,7 @@ export async function deleteResource(fhirBaseUrl, resource, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
+export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
   if (!fhirBaseUrl) {
     throw new Error(
       "Resource was not deleted because the given fhirBaseUrl was null or undefined"
@@ -411,7 +401,7 @@ export async function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
     headers
   };
 
-  return await axios.delete(url, options);
+  return axios.delete(url, options);
 }
 
 /**
@@ -491,9 +481,9 @@ export function mapFhirResponse(res) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchConformanceStatement(fhirBaseUrl, params, token) {
+export function fetchConformanceStatement(fhirBaseUrl, params, token) {
   const resourceType = `metadata`;
-  return await fetchResources(fhirBaseUrl, resourceType, params, token);
+  return fetchResources(fhirBaseUrl, resourceType, params, token);
 }
 
 /**
@@ -505,9 +495,9 @@ export async function fetchConformanceStatement(fhirBaseUrl, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchPatient(fhirBaseUrl, id, params, token) {
+export function fetchPatient(fhirBaseUrl, id, params, token) {
   const resourceType = `Patient`;
-  return await fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
 }
 
 /**
@@ -518,8 +508,8 @@ export async function fetchPatient(fhirBaseUrl, id, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchPatients(fhirBaseUrl, params, token) {
-  return await fetchResources(fhirBaseUrl, "Patient", params, token);
+export function fetchPatients(fhirBaseUrl, params, token) {
+  return fetchResources(fhirBaseUrl, "Patient", params, token);
 }
 
 /**
@@ -531,9 +521,9 @@ export async function fetchPatients(fhirBaseUrl, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchQuestionnaire(fhirBaseUrl, id, params, token) {
+export function fetchQuestionnaire(fhirBaseUrl, id, params, token) {
   const resourceType = `Questionnaire`;
-  return await fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
 }
 
 /**
@@ -544,8 +534,8 @@ export async function fetchQuestionnaire(fhirBaseUrl, id, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchQuestionnaires(fhirBaseUrl, params, token) {
-  return await fetchResources(fhirBaseUrl, "Questionnaire", params, token);
+export function fetchQuestionnaires(fhirBaseUrl, params, token) {
+  return fetchResources(fhirBaseUrl, "Questionnaire", params, token);
 }
 
 /**
@@ -557,9 +547,9 @@ export async function fetchQuestionnaires(fhirBaseUrl, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchValueSet(fhirBaseUrl, id, params, token) {
+export function fetchValueSet(fhirBaseUrl, id, params, token) {
   const resourceType = `ValueSet`;
-  return await fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
 }
 
 /**
@@ -570,6 +560,6 @@ export async function fetchValueSet(fhirBaseUrl, id, params, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export async function fetchValueSets(fhirBaseUrl, params, token) {
-  return await fetchResources(fhirBaseUrl, "ValueSet", params, token);
+export function fetchValueSets(fhirBaseUrl, params, token) {
+  return fetchResources(fhirBaseUrl, "ValueSet", params, token);
 }
