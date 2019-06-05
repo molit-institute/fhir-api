@@ -35,4 +35,4 @@ let name = fetchQuestionnaires(fhirBaseUrl);
 
 ### Documentation
 
-See full documentation here: https://molitinstitute.github.io/fhir-api/
+See full documentation here: https://docs.molit.eu/fhir-api/

@@ -4,7 +4,7 @@
   "description": "This package can be used to access FHIR APIs",
   "main": "dist/index.js",
   "repository": "github:molitinstitute/fhir-api",
-  "homepage": "https://molitinstitute.github.io/fhir-api/",
+  "homepage": "https://docs.molit.eu/fhir-api/",
   "scripts": {
     "test": "jest",
     "lint": "eslint ./index.js test",
