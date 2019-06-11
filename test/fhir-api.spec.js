@@ -1,5 +1,6 @@
 import axios from "axios";
-import * as fhirApi from "../index.js";
+import * as fhirApi from "../index";
+import "@babel/polyfill";
 
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
 import responseMetadata from "./fixtures/ResponseMetadata.json";
