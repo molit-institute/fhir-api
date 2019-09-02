@@ -20,15 +20,15 @@
     "axios": "^0.19.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.5",
+    "coveralls": "^3.0.6",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2"
   },
   "author": "MOLIT Institut gGmbH",
