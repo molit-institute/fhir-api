@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from "qs";
 
 /**
  * Fetches resource(s) by the given <code>url</code>.
@@ -115,7 +116,8 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
 
   const options = {
     params,
-    headers
+    headers,
+    paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" })
   };
 
   return axios.get(url, options);
