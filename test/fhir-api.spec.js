@@ -19,6 +19,8 @@ const TOKEN =
 const PARAMS = {
   _lastUpdated: "gt2010-10-01"
 };
+const URL_SEARCH_PARAMS = new URLSearchParams();
+URL_SEARCH_PARAMS.append("_lastUpdated", "gt2010-10-01");
 
 const ERROR_FETCH_BY_URL_URL_MISSING =
   "Fetching the resource(s) failed because the given url was null or undefined";
@@ -250,6 +252,20 @@ describe("FHIR API", () => {
         FHIR_BASE_URL,
         "Patient",
         PARAMS,
+        TOKEN
+      )).data;
+      expect(data).toBeDefined();
+      expect(data).toEqual(resp.data);
+    });
+
+    test("fetchResourcesPost valid with urlsearchparams", async () => {
+      const resp = { data: responsePatients };
+      axios.post.mockResolvedValue(resp);
+
+      const data = (await fhirApi.fetchResourcesPost(
+        FHIR_BASE_URL,
+        "Patient",
+        URL_SEARCH_PARAMS,
         TOKEN
       )).data;
       expect(data).toBeDefined();

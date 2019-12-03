@@ -115,10 +115,14 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
   }
 
   const options = {
-    params,
     headers,
-    paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" })
+    params
   };
+
+  if (!(params instanceof URLSearchParams)) {
+    options.paramsSerializer = params =>
+      qs.stringify(params, { arrayFormat: "repeat" });
+  }
 
   return axios.get(url, options);
 }
