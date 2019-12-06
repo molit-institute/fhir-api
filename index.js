@@ -203,7 +203,14 @@ export function submitResource(fhirBaseUrl, resource, token) {
     );
   }
 
-  const url = `${fhirBaseUrl}/${resource.resourceType}`;
+  let url;
+
+  if (resource.resourceType === "Bundle" && resource.type === "transaction") {
+    url = `${fhirBaseUrl}/`;
+  } else {
+    url = `${fhirBaseUrl}/${resource.resourceType}`;
+  }
+
   const headers = {
     "Cache-Control": "no-cache",
     "Content-Type": "application/json"
