@@ -1,6 +1,6 @@
 import axios from "axios";
 import qs from "qs";
-import get from "lodash";
+import { get } from "lodash";
 
 /**
  * Fetches resource(s) by the given <code>url</code>.
