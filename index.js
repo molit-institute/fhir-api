@@ -17,7 +17,7 @@ export function fetchByUrl(url, params = {}, token) {
   }
 
   const headers = {
-    "Cache-Control": "no-cache"
+    "Cache-Control": "no-cache",
   };
 
   if (token) {
@@ -26,7 +26,7 @@ export function fetchByUrl(url, params = {}, token) {
 
   const options = {
     params,
-    headers
+    headers,
   };
   return axios.get(url, options);
 }
@@ -68,7 +68,7 @@ export function fetchResource(
 
   const url = `${fhirBaseUrl}/${resourceType}/${id}`;
   const headers = {
-    "Cache-Control": "no-cache"
+    "Cache-Control": "no-cache",
   };
 
   if (token) {
@@ -77,7 +77,7 @@ export function fetchResource(
 
   const options = {
     params,
-    headers
+    headers,
   };
 
   return axios.get(url, options);
@@ -107,7 +107,7 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
 
   const url = `${fhirBaseUrl}/${resourceType}`;
   const headers = {
-    "Cache-Control": "no-cache"
+    "Cache-Control": "no-cache",
   };
 
   if (token) {
@@ -116,11 +116,11 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
 
   const options = {
     headers,
-    params
+    params,
   };
 
   if (!(params instanceof URLSearchParams)) {
-    options.paramsSerializer = params =>
+    options.paramsSerializer = (params) =>
       qs.stringify(params, { arrayFormat: "repeat" });
   }
 
@@ -156,7 +156,7 @@ export function fetchResourcesPost(
 
   const url = `${fhirBaseUrl}/${resourceType}/_search`;
   const headers = {
-    "Cache-Control": "no-cache"
+    "Cache-Control": "no-cache",
   };
 
   let urlSearchParams = new URLSearchParams();
@@ -170,7 +170,7 @@ export function fetchResourcesPost(
   }
 
   const options = {
-    headers
+    headers,
   };
 
   return axios.post(url, urlSearchParams, options);
@@ -206,7 +206,43 @@ export function submitResource(fhirBaseUrl, resource, token) {
   const url = `${fhirBaseUrl}/${resource.resourceType}`;
   const headers = {
     "Cache-Control": "no-cache",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+  };
+
+  if (token) {
+    headers.Authorization = "Bearer " + token;
+  }
+
+  const options = {
+    headers,
+  };
+
+  return axios.post(url, resource, options);
+}
+
+/**
+ * Submits a given Resource to a Url
+ * @param {*} baseUrl
+ * @param {*} resource
+ * @param {*} token
+ */
+export function submitResourceToUrl(baseUrl, resource, token) {
+  console.log(axios.defaults.baseURL)
+  console.log("param", baseUrl);
+  if (!baseUrl) {
+    throw new Error(
+      "Resource was not submitted because the given fhirBaseUrl was null or undefined"
+    );
+  }
+
+  if (!resource) {
+    throw new Error(
+      "Resource was not submitted because the given resource was null or undefined"
+    );
+  }
+  const headers = {
+    "Cache-Control": "no-cache",
+    "Content-Type": "application/json",
   };
 
   if (token) {
@@ -216,8 +252,8 @@ export function submitResource(fhirBaseUrl, resource, token) {
   const options = {
     headers
   };
-
-  return axios.post(url, resource, options);
+  console.log("axios", baseUrl);
+  return axios.post(baseUrl, resource, options);
 }
 
 /**
@@ -256,7 +292,7 @@ export function updateResource(fhirBaseUrl, resource, token) {
   const url = `${fhirBaseUrl}/${resource.resourceType}/${resource.id}`;
   const headers = {
     "Cache-Control": "no-cache",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
 
   if (token) {
@@ -264,7 +300,7 @@ export function updateResource(fhirBaseUrl, resource, token) {
   }
 
   const options = {
-    headers
+    headers,
   };
 
   return axios.put(url, resource, options);
@@ -301,7 +337,7 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
   const url = `${fhirBaseUrl}/${resource.resourceType}`;
   const headers = {
     "Cache-Control": "no-cache",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
 
   if (token) {
@@ -310,7 +346,7 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
 
   const options = {
     params,
-    headers
+    headers,
   };
 
   return axios.put(url, resource, options);
@@ -352,7 +388,7 @@ export function deleteResource(fhirBaseUrl, resource, token) {
   const url = `${fhirBaseUrl}/${resource.resourceType}/${resource.id}`;
   const headers = {
     "Cache-Control": "no-cache",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
 
   if (token) {
@@ -360,7 +396,7 @@ export function deleteResource(fhirBaseUrl, resource, token) {
   }
 
   const options = {
-    headers
+    headers,
   };
 
   return axios.delete(url, options);
@@ -396,7 +432,7 @@ export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
   const url = `${fhirBaseUrl}/${resourceType}/${id}`;
   const headers = {
     "Cache-Control": "no-cache",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   };
 
   if (token) {
@@ -404,7 +440,7 @@ export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
   }
 
   const options = {
-    headers
+    headers,
   };
 
   return axios.delete(url, options);
@@ -462,7 +498,7 @@ export function mapFhirData(data) {
   if (!data || !data.entry || !Array.isArray(data.entry)) {
     return [];
   }
-  return data.entry.map(element => element.resource);
+  return data.entry.map((element) => element.resource);
 }
 
 /**
