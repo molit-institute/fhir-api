@@ -11,9 +11,7 @@ import qs from "qs";
  */
 export function fetchByUrl(url, params = {}, token) {
   if (!url) {
-    throw new Error(
-      "Fetching the resource(s) failed because the given url was null or undefined"
-    );
+    throw new Error("Fetching the resource(s) failed because the given url was null or undefined");
   }
 
   const headers = {
@@ -41,29 +39,17 @@ export function fetchByUrl(url, params = {}, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchResource(
-  fhirBaseUrl,
-  resourceType,
-  id,
-  params = {},
-  token
-) {
+export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Fetching the resources failed because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resourceType) {
-    throw new Error(
-      "Fetching the resources failed because the given resourceType was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given resourceType was null or undefined");
   }
 
   if (id === null || id === undefined) {
-    throw new Error(
-      "Fetching the resource failed because the given id was null or undefined"
-    );
+    throw new Error("Fetching the resource failed because the given id was null or undefined");
   }
 
   const url = `${fhirBaseUrl}/${resourceType}/${id}`;
@@ -94,15 +80,11 @@ export function fetchResource(
  */
 export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Fetching the resources failed because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resourceType) {
-    throw new Error(
-      "Fetching the resources failed because the given resourceType was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given resourceType was null or undefined");
   }
 
   const url = `${fhirBaseUrl}/${resourceType}`;
@@ -120,8 +102,7 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
   };
 
   if (!(params instanceof URLSearchParams)) {
-    options.paramsSerializer = params =>
-      qs.stringify(params, { arrayFormat: "repeat" });
+    options.paramsSerializer = params => qs.stringify(params, { arrayFormat: "repeat" });
   }
 
   return axios.get(url, options);
@@ -136,22 +117,13 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
  * @param {String} [token] - the authentication token
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchResourcesPost(
-  fhirBaseUrl,
-  resourceType,
-  params = {},
-  token
-) {
+export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Fetching the resources failed because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resourceType) {
-    throw new Error(
-      "Fetching the resources failed because the given resourceType was null or undefined"
-    );
+    throw new Error("Fetching the resources failed because the given resourceType was null or undefined");
   }
 
   const url = `${fhirBaseUrl}/${resourceType}/_search`;
@@ -186,21 +158,15 @@ export function fetchResourcesPost(
  */
 export function submitResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Resource was not submitted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resource) {
-    throw new Error(
-      "Resource was not submitted because the given resource was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given resource was null or undefined");
   }
 
   if (!resource.resourceType) {
-    throw new Error(
-      "Invalid JSON content detected, missing required element: 'resourceType'"
-    );
+    throw new Error("Invalid JSON content detected, missing required element: 'resourceType'");
   }
 
   const url = `${fhirBaseUrl}/${resource.resourceType}`;
@@ -228,15 +194,11 @@ export function submitResource(fhirBaseUrl, resource, token) {
  */
 export function submitResourceToUrl(baseUrl, resource, token) {
   if (!baseUrl) {
-    throw new Error(
-      "Resource was not submitted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resource) {
-    throw new Error(
-      "Resource was not submitted because the given resource was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given resource was null or undefined");
   }
   const headers = {
     "Cache-Control": "no-cache",
@@ -263,27 +225,19 @@ export function submitResourceToUrl(baseUrl, resource, token) {
  */
 export function updateResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Resource was not submitted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resource) {
-    throw new Error(
-      "Resource was not submitted because the given resource was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given resource was null or undefined");
   }
 
   if (!resource.resourceType) {
-    throw new Error(
-      "Invalid JSON content detected, missing required element: 'resourceType'"
-    );
+    throw new Error("Invalid JSON content detected, missing required element: 'resourceType'");
   }
 
   if (resource.id === null || resource.id === undefined) {
-    throw new Error(
-      "Can not update resource, resource body must contain an ID element for update (PUT) operation"
-    );
+    throw new Error("Can not update resource, resource body must contain an ID element for update (PUT) operation");
   }
 
   const url = `${fhirBaseUrl}/${resource.resourceType}/${resource.id}`;
@@ -314,21 +268,15 @@ export function updateResource(fhirBaseUrl, resource, token) {
  */
 export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Resource was not submitted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resource) {
-    throw new Error(
-      "Resource was not submitted because the given resource was null or undefined"
-    );
+    throw new Error("Resource was not submitted because the given resource was null or undefined");
   }
 
   if (!resource.resourceType) {
-    throw new Error(
-      "Invalid JSON content detected, missing required element: 'resourceType'"
-    );
+    throw new Error("Invalid JSON content detected, missing required element: 'resourceType'");
   }
 
   const url = `${fhirBaseUrl}/${resource.resourceType}`;
@@ -359,27 +307,19 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
  */
 export function deleteResource(fhirBaseUrl, resource, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Resource was not deleted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not deleted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resource) {
-    throw new Error(
-      "Resource was not deleted because the given resource was null or undefined"
-    );
+    throw new Error("Resource was not deleted because the given resource was null or undefined");
   }
 
   if (!resource.resourceType) {
-    throw new Error(
-      "Invalid JSON content detected, missing required element: 'resourceType'"
-    );
+    throw new Error("Invalid JSON content detected, missing required element: 'resourceType'");
   }
 
   if (resource.id === null || resource.id === undefined) {
-    throw new Error(
-      "Can not delete resource, resource body must contain an ID element for delete (DELETE) operation"
-    );
+    throw new Error("Can not delete resource, resource body must contain an ID element for delete (DELETE) operation");
   }
 
   const url = `${fhirBaseUrl}/${resource.resourceType}/${resource.id}`;
@@ -409,21 +349,15 @@ export function deleteResource(fhirBaseUrl, resource, token) {
  */
 export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
   if (!fhirBaseUrl) {
-    throw new Error(
-      "Resource was not deleted because the given fhirBaseUrl was null or undefined"
-    );
+    throw new Error("Resource was not deleted because the given fhirBaseUrl was null or undefined");
   }
 
   if (!resourceType) {
-    throw new Error(
-      "Resource was not deleted because the given resourceType was null or undefined"
-    );
+    throw new Error("Resource was not deleted because the given resourceType was null or undefined");
   }
 
   if (id === null || id === undefined) {
-    throw new Error(
-      "Can not delete resource, resource body must contain an ID element for delete (DELETE) operation"
-    );
+    throw new Error("Can not delete resource, resource body must contain an ID element for delete (DELETE) operation");
   }
 
   const url = `${fhirBaseUrl}/${resourceType}/${id}`;
