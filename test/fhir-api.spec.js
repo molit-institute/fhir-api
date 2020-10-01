@@ -3,6 +3,7 @@ import * as fhirApi from "../index";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
+import bundle from "./fixtures/Bundle.json";
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
 import responseMetadata from "./fixtures/ResponseMetadata.json";
 import responsePatients from "./fixtures/ResponsePatients.json";
@@ -356,6 +357,62 @@ describe("FHIR API", () => {
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_INVALID);
+      }
+    });
+  });
+
+  describe("submitResourceToUrl", () => {
+    test("submitResourceToUrl valid", async () => {
+      const resp = { data: bundle };
+      axios.post.mockResolvedValue(resp);
+
+      const data = (await fhirApi.submitResourceToUrl(FHIR_BASE_URL, bundle, TOKEN)).data;
+      expect(data).toBeDefined();
+      expect(data).toEqual(resp.data);
+    });
+
+    test("submitResourceToUrl params missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl();
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+
+      try {
+        await fhirApi.submitResourceToUrl(null, null, null);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+    });
+
+    test("submitResourceToUrl param fhirBaseUrl missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(null, bundle);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+    });
+
+    test("submitResourceToUrl param fhirBaseUrl Invalid", async () => {
+      axios.post.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
+
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL_INVALID, bundle);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("submitResourceToUrl param resource missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_MISSING);
       }
     });
   });
