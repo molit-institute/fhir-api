@@ -1,6 +1,6 @@
 {
   "name": "@molit/fhir-api",
-  "version": "1.0.17",
+  "version": "1.0.22",
   "description": "This package can be used to access FHIR APIs",
   "main": "dist/index.js",
   "repository": "github:molitinstitute/fhir-api",
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./index.js test",
+    "lint:fix": "eslint ./index.js test --fix",
     "doc": "jsdoc index.js README.md -d ./jsdoc/",
     "build": "babel index.js --out-dir dist"
   },
@@ -16,20 +17,24 @@
     "API"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "axios": "^0.19.0"
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "lodash": "^4.17.15",
+    "qs": "^6.9.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^24.9.0",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.6",
+    "coveralls": "^3.1.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "regenerator-runtime": "^0.13.5"
   },
   "author": "MOLIT Institut gGmbH",
   "license": "Apache-2.0"

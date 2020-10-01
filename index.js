@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import { get } from "lodash";
 
 /**
  * Fetches resource(s) by the given <code>url</code>.
@@ -128,6 +129,30 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
 }
 
 /**
+ * Fetches a ValueSet by the given url and returns the concept.
+ *
+ * @param {String} fhirBaseUrl - the base URL of the FHIR server
+ * @param {String} [token] - the authentication token
+ * @param {String} url - the url of the resource
+ * @returns {Array} - the cpncept
+ */
+export async function fetchValueSetConceptByUrl(fhirBaseUrl, token, url) {
+  const response = await fetchResources(
+    fhirBaseUrl,
+    "ValueSet",
+    { url },
+    token
+  );
+  const valueSet = mapFhirResponse(response)[0];
+
+  if (!valueSet) {
+    throw new Error("ValueSet '" + url + "' not found on server.");
+  }
+
+  return get(valueSet, "compose.include[0].concept", []);
+}
+
+/**
  * Fetches resources from a FHIR server using a POST request.
  *
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
@@ -203,7 +228,14 @@ export function submitResource(fhirBaseUrl, resource, token) {
     );
   }
 
-  const url = `${fhirBaseUrl}/${resource.resourceType}`;
+  let url;
+
+  if (resource.resourceType === "Bundle" && resource.type === "transaction") {
+    url = `${fhirBaseUrl}/`;
+  } else {
+    url = `${fhirBaseUrl}/${resource.resourceType}`;
+  }
+
   const headers = {
     "Cache-Control": "no-cache",
     "Content-Type": "application/json"

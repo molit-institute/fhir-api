@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as fhirApi from "../index";
-import "@babel/polyfill";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
 import responseMetadata from "./fixtures/ResponseMetadata.json";
@@ -96,13 +97,9 @@ describe("FHIR API", () => {
       const resp = { data: responseQuestionnaire };
       axios.get.mockResolvedValue(resp);
 
-      const data = (await fhirApi.fetchResource(
-        FHIR_BASE_URL,
-        RESOURCE_TYPE,
-        ID,
-        {},
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.fetchResource(FHIR_BASE_URL, RESOURCE_TYPE, ID, {}, TOKEN)
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -177,12 +174,9 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.get.mockResolvedValue(resp);
 
-      const data = (await fhirApi.fetchResources(
-        FHIR_BASE_URL,
-        RESOURCE_TYPE,
-        {},
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, {}, TOKEN)
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -248,12 +242,14 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.post.mockResolvedValue(resp);
 
-      const data = (await fhirApi.fetchResourcesPost(
-        FHIR_BASE_URL,
-        "Patient",
-        PARAMS,
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.fetchResourcesPost(
+          FHIR_BASE_URL,
+          "Patient",
+          PARAMS,
+          TOKEN
+        )
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -262,12 +258,14 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.post.mockResolvedValue(resp);
 
-      const data = (await fhirApi.fetchResourcesPost(
-        FHIR_BASE_URL,
-        "Patient",
-        URL_SEARCH_PARAMS,
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.fetchResourcesPost(
+          FHIR_BASE_URL,
+          "Patient",
+          URL_SEARCH_PARAMS,
+          TOKEN
+        )
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -334,11 +332,13 @@ describe("FHIR API", () => {
       const resp = { data: questionnaireResponse };
       axios.post.mockResolvedValue(resp);
 
-      const data = (await fhirApi.submitResource(
-        FHIR_BASE_URL,
-        questionnaireResponse,
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.submitResource(
+          FHIR_BASE_URL,
+          questionnaireResponse,
+          TOKEN
+        )
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -406,11 +406,13 @@ describe("FHIR API", () => {
       const resp = { data: questionnaireResponse };
       axios.put.mockResolvedValue(resp);
 
-      const data = (await fhirApi.updateResource(
-        FHIR_BASE_URL,
-        questionnaireResponse,
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.updateResource(
+          FHIR_BASE_URL,
+          questionnaireResponse,
+          TOKEN
+        )
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -489,12 +491,14 @@ describe("FHIR API", () => {
       const resp = { data: questionnaireResponse };
       axios.put.mockResolvedValue(resp);
 
-      const data = (await fhirApi.updateResourceByUrl(
-        FHIR_BASE_URL,
-        questionnaireResponse,
-        null,
-        TOKEN
-      )).data;
+      const data = (
+        await fhirApi.updateResourceByUrl(
+          FHIR_BASE_URL,
+          questionnaireResponse,
+          null,
+          TOKEN
+        )
+      ).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -562,11 +566,13 @@ describe("FHIR API", () => {
       const resp = { status: 200 };
       axios.delete.mockResolvedValue(resp);
 
-      const status = (await fhirApi.deleteResource(
-        FHIR_BASE_URL,
-        questionnaireResponse,
-        TOKEN
-      )).status;
+      const status = (
+        await fhirApi.deleteResource(
+          FHIR_BASE_URL,
+          questionnaireResponse,
+          TOKEN
+        )
+      ).status;
       expect(status).toBeDefined();
       expect(status).toEqual(resp.status);
     });
@@ -645,12 +651,14 @@ describe("FHIR API", () => {
       const resp = { status: 200 };
       axios.delete.mockResolvedValue(resp);
 
-      const status = (await fhirApi.deleteResourceById(
-        FHIR_BASE_URL,
-        RESOURCE_TYPE,
-        ID,
-        TOKEN
-      )).status;
+      const status = (
+        await fhirApi.deleteResourceById(
+          FHIR_BASE_URL,
+          RESOURCE_TYPE,
+          ID,
+          TOKEN
+        )
+      ).status;
       expect(status).toBeDefined();
       expect(status).toEqual(resp.status);
     });
