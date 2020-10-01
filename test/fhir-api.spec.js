@@ -3,6 +3,7 @@ import * as fhirApi from "../index";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
+import bundle from "./fixtures/Bundle.json";
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
 import responseMetadata from "./fixtures/ResponseMetadata.json";
 import responsePatients from "./fixtures/ResponsePatients.json";
@@ -15,40 +16,26 @@ const FHIR_BASE_URL_INVALID = "slfdsaluztf";
 const RESOURCE_TYPE = "Patient";
 const RESOURCE_TYPE_INVALID = "Arizona";
 const ID = "209";
-const TOKEN =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
 const PARAMS = {
   _lastUpdated: "gt2010-10-01"
 };
 const URL_SEARCH_PARAMS = new URLSearchParams();
 URL_SEARCH_PARAMS.append("_lastUpdated", "gt2010-10-01");
 
-const ERROR_FETCH_BY_URL_URL_MISSING =
-  "Fetching the resource(s) failed because the given url was null or undefined";
-const ERROR_FHIR_BASE_URL_MISSING =
-  "Fetching the resources failed because the given fhirBaseUrl was null or undefined";
-const ERROR_RESOURCE_TYPE_MISSING =
-  "Fetching the resources failed because the given resourceType was null or undefined";
-const ERROR_DELETE_RESOURCE_TYPE_MISSING =
-  "Resource was not deleted because the given resourceType was null or undefined";
-const ERROR_RESOURCE_ID_MISSING =
-  "Fetching the resource failed because the given id was null or undefined";
-const ERROR_DELETE_RESOURCE_ID_MISSING =
-  "Can not delete resource, resource body must contain an ID element for delete (DELETE) operation";
-const ERROR_PUT_RESOURCE_ID_MISSING =
-  "Can not update resource, resource body must contain an ID element for update (PUT) operation";
-const ERROR_SUBMIT_FHIR_BASE_URL_MISSING =
-  "Resource was not submitted because the given fhirBaseUrl was null or undefined";
-const ERROR_SUBMIT_RESOURCE_MISSING =
-  "Resource was not submitted because the given resource was null or undefined";
-const ERROR_SUBMIT_RESOURCE_INVALID =
-  "Invalid JSON content detected, missing required element: 'resourceType'";
-const ERROR_DELETE_FHIR_BASE_URL_MISSING =
-  "Resource was not deleted because the given fhirBaseUrl was null or undefined";
-const ERROR_DELETE_RESOURCE_MISSING =
-  "Resource was not deleted because the given resource was null or undefined";
-const ERROR_DELETE_RESOURCE_INVALID =
-  "Invalid JSON content detected, missing required element: 'resourceType'";
+const ERROR_FETCH_BY_URL_URL_MISSING = "Fetching the resource(s) failed because the given url was null or undefined";
+const ERROR_FHIR_BASE_URL_MISSING = "Fetching the resources failed because the given fhirBaseUrl was null or undefined";
+const ERROR_RESOURCE_TYPE_MISSING = "Fetching the resources failed because the given resourceType was null or undefined";
+const ERROR_DELETE_RESOURCE_TYPE_MISSING = "Resource was not deleted because the given resourceType was null or undefined";
+const ERROR_RESOURCE_ID_MISSING = "Fetching the resource failed because the given id was null or undefined";
+const ERROR_DELETE_RESOURCE_ID_MISSING = "Can not delete resource, resource body must contain an ID element for delete (DELETE) operation";
+const ERROR_PUT_RESOURCE_ID_MISSING = "Can not update resource, resource body must contain an ID element for update (PUT) operation";
+const ERROR_SUBMIT_FHIR_BASE_URL_MISSING = "Resource was not submitted because the given fhirBaseUrl was null or undefined";
+const ERROR_SUBMIT_RESOURCE_MISSING = "Resource was not submitted because the given resource was null or undefined";
+const ERROR_SUBMIT_RESOURCE_INVALID = "Invalid JSON content detected, missing required element: 'resourceType'";
+const ERROR_DELETE_FHIR_BASE_URL_MISSING = "Resource was not deleted because the given fhirBaseUrl was null or undefined";
+const ERROR_DELETE_RESOURCE_MISSING = "Resource was not deleted because the given resource was null or undefined";
+const ERROR_DELETE_RESOURCE_INVALID = "Invalid JSON content detected, missing required element: 'resourceType'";
 const ERROR_HTTP_AXIOS = "HTTP Error";
 
 jest.mock("axios");
@@ -97,9 +84,7 @@ describe("FHIR API", () => {
       const resp = { data: responseQuestionnaire };
       axios.get.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.fetchResource(FHIR_BASE_URL, RESOURCE_TYPE, ID, {}, TOKEN)
-      ).data;
+      const data = (await fhirApi.fetchResource(FHIR_BASE_URL, RESOURCE_TYPE, ID, {}, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -174,9 +159,7 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.get.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, {}, TOKEN)
-      ).data;
+      const data = (await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, {}, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -242,14 +225,7 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.post.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.fetchResourcesPost(
-          FHIR_BASE_URL,
-          "Patient",
-          PARAMS,
-          TOKEN
-        )
-      ).data;
+      const data = (await fhirApi.fetchResourcesPost(FHIR_BASE_URL, "Patient", PARAMS, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -258,14 +234,7 @@ describe("FHIR API", () => {
       const resp = { data: responsePatients };
       axios.post.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.fetchResourcesPost(
-          FHIR_BASE_URL,
-          "Patient",
-          URL_SEARCH_PARAMS,
-          TOKEN
-        )
-      ).data;
+      const data = (await fhirApi.fetchResourcesPost(FHIR_BASE_URL, "Patient", URL_SEARCH_PARAMS, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -332,13 +301,7 @@ describe("FHIR API", () => {
       const resp = { data: questionnaireResponse };
       axios.post.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.submitResource(
-          FHIR_BASE_URL,
-          questionnaireResponse,
-          TOKEN
-        )
-      ).data;
+      const data = (await fhirApi.submitResource(FHIR_BASE_URL, questionnaireResponse, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -372,10 +335,7 @@ describe("FHIR API", () => {
       axios.post.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.submitResource(
-          FHIR_BASE_URL_INVALID,
-          questionnaireResponse
-        );
+        await fhirApi.submitResource(FHIR_BASE_URL_INVALID, questionnaireResponse);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -401,18 +361,68 @@ describe("FHIR API", () => {
     });
   });
 
+  describe("submitResourceToUrl", () => {
+    test("submitResourceToUrl valid", async () => {
+      const resp = { data: bundle };
+      axios.post.mockResolvedValue(resp);
+
+      const data = (await fhirApi.submitResourceToUrl(FHIR_BASE_URL, bundle, TOKEN)).data;
+      expect(data).toBeDefined();
+      expect(data).toEqual(resp.data);
+    });
+
+    test("submitResourceToUrl params missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl();
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+
+      try {
+        await fhirApi.submitResourceToUrl(null, null, null);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+    });
+
+    test("submitResourceToUrl param fhirBaseUrl missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(null, bundle);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_FHIR_BASE_URL_MISSING);
+      }
+    });
+
+    test("submitResourceToUrl param fhirBaseUrl Invalid", async () => {
+      axios.post.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
+
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL_INVALID, bundle);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("submitResourceToUrl param resource missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL);
+        throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_MISSING);
+      }
+    });
+  });
+
   describe("updateResource", () => {
     test("updateResource valid", async () => {
       const resp = { data: questionnaireResponse };
       axios.put.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.updateResource(
-          FHIR_BASE_URL,
-          questionnaireResponse,
-          TOKEN
-        )
-      ).data;
+      const data = (await fhirApi.updateResource(FHIR_BASE_URL, questionnaireResponse, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -446,10 +456,7 @@ describe("FHIR API", () => {
       axios.put.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.updateResource(
-          FHIR_BASE_URL_INVALID,
-          questionnaireResponse
-        );
+        await fhirApi.updateResource(FHIR_BASE_URL_INVALID, questionnaireResponse);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -491,14 +498,7 @@ describe("FHIR API", () => {
       const resp = { data: questionnaireResponse };
       axios.put.mockResolvedValue(resp);
 
-      const data = (
-        await fhirApi.updateResourceByUrl(
-          FHIR_BASE_URL,
-          questionnaireResponse,
-          null,
-          TOKEN
-        )
-      ).data;
+      const data = (await fhirApi.updateResourceByUrl(FHIR_BASE_URL, questionnaireResponse, null, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -532,10 +532,7 @@ describe("FHIR API", () => {
       axios.put.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.updateResourceByUrl(
-          FHIR_BASE_URL_INVALID,
-          questionnaireResponse
-        );
+        await fhirApi.updateResourceByUrl(FHIR_BASE_URL_INVALID, questionnaireResponse);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -566,13 +563,7 @@ describe("FHIR API", () => {
       const resp = { status: 200 };
       axios.delete.mockResolvedValue(resp);
 
-      const status = (
-        await fhirApi.deleteResource(
-          FHIR_BASE_URL,
-          questionnaireResponse,
-          TOKEN
-        )
-      ).status;
+      const status = (await fhirApi.deleteResource(FHIR_BASE_URL, questionnaireResponse, TOKEN)).status;
       expect(status).toBeDefined();
       expect(status).toEqual(resp.status);
     });
@@ -606,10 +597,7 @@ describe("FHIR API", () => {
       axios.delete.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.deleteResource(
-          FHIR_BASE_URL_INVALID,
-          questionnaireResponse
-        );
+        await fhirApi.deleteResource(FHIR_BASE_URL_INVALID, questionnaireResponse);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -651,14 +639,7 @@ describe("FHIR API", () => {
       const resp = { status: 200 };
       axios.delete.mockResolvedValue(resp);
 
-      const status = (
-        await fhirApi.deleteResourceById(
-          FHIR_BASE_URL,
-          RESOURCE_TYPE,
-          ID,
-          TOKEN
-        )
-      ).status;
+      const status = (await fhirApi.deleteResourceById(FHIR_BASE_URL, RESOURCE_TYPE, ID, TOKEN)).status;
       expect(status).toBeDefined();
       expect(status).toEqual(resp.status);
     });
@@ -691,11 +672,7 @@ describe("FHIR API", () => {
       axios.delete.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.deleteResourceById(
-          FHIR_BASE_URL_INVALID,
-          RESOURCE_TYPE,
-          ID
-        );
+        await fhirApi.deleteResourceById(FHIR_BASE_URL_INVALID, RESOURCE_TYPE, ID);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -715,11 +692,7 @@ describe("FHIR API", () => {
       axios.get.mockRejectedValue(new Error(ERROR_HTTP_AXIOS));
 
       try {
-        await fhirApi.deleteResourceById(
-          FHIR_BASE_URL,
-          RESOURCE_TYPE_INVALID,
-          ID
-        );
+        await fhirApi.deleteResourceById(FHIR_BASE_URL, RESOURCE_TYPE_INVALID, ID);
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
@@ -788,8 +761,7 @@ describe("FHIR API", () => {
       const resp = { data: responseMetadata };
       axios.get.mockResolvedValue(resp);
 
-      const data = (await fhirApi.fetchConformanceStatement(FHIR_BASE_URL))
-        .data;
+      const data = (await fhirApi.fetchConformanceStatement(FHIR_BASE_URL)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });

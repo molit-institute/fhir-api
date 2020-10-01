@@ -5,7 +5,7 @@ module.exports = {
     jest: true
   },
   plugins: ["prettier"],
-  extends: ["eslint:recommended", "prettier"],
+  extends: ["prettier"],
   rules: {
     "prettier/prettier": "error",
     "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
@@ -18,4 +18,3 @@ module.exports = {
     sourceType: "module"
   }
 };
-  
