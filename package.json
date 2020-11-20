@@ -10,6 +10,7 @@
     "lint": "eslint ./index.js test",
     "lint:fix": "eslint ./index.js test --fix",
     "doc": "jsdoc index.js README.md -d ./jsdoc/",
+    "doc:localJsdoc": "./node_modules/.bin/jsdoc index.js README.md -d ./jsdoc/",
     "build": "babel index.js --out-dir dist"
   },
   "keywords": [
