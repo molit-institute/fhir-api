@@ -38,7 +38,8 @@ jobs:
     - name: eslint
       run: npm run lint
     - name: jest
-      run: npm run test && cat ./coverage/lcov.info | coveralls
+      run: npm run test
+      # && cat ./coverage/lcov.info | coveralls
     #publish if all previous steps run through
     - name: publish
       if: ${{ success() }}

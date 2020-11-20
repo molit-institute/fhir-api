@@ -41,5 +41,6 @@ jobs:
     - name: eslint
       run: npm run lint
     - name: jest
-      run: npm run test && cat ./coverage/lcov.info | coveralls
+      run: npm run test
+      # && cat ./coverage/lcov.info | coveralls
 
