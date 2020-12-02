@@ -1,6 +1,6 @@
 {
   "name": "@molit/fhir-api",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "This package can be used to access FHIR APIs",
   "main": "dist/index.js",
   "repository": "github:molitinstitute/fhir-api",
