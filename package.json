@@ -18,20 +18,20 @@
     "API"
   ],
   "dependencies": {
-    "axios": "^0.19.2",
-    "core-js": "^3.6.5",
+    "axios": "^0.21.1",
+    "core-js": "^3.8.2",
     "lodash": "^4.17.15",
-    "qs": "^6.9.4"
+    "qs": "^6.9.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.8",
-    "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "chai": "^4.2.0",
     "coveralls": "^3.1.0",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "regenerator-runtime": "^0.13.5"
