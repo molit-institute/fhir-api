@@ -1,7 +1,6 @@
 ## FHIR API
 
-[![Build Status](https://travis-ci.org/molit-institute/fhir-api.svg?branch=master)](https://travis-ci.org/molit-institute/fhir-api)
-[![Coverage Status](https://coveralls.io/repos/github/molitinstitute/fhir-api/badge.svg?branch=master)](https://coveralls.io/github/molitinstitute/fhir-api?branch=master)
+![build](https://github.com/molit-institute/fhir-api/workflows/Test%20and%20publish/badge.svg)
 ![npm](https://img.shields.io/npm/v/@molit/fhir-api.svg)
 ![NPM](https://img.shields.io/npm/l/@molit/fhir-api.svg)
 
