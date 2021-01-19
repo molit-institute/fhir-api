@@ -1,6 +1,8 @@
 ## FHIR API
 
-![build](https://github.com/molit-institute/fhir-api/workflows/Test%20and%20publish/badge.svg)
+![build](https://github.com/molit-institute/fhir-util/workflows/Build/badge.svg)
+![publish](https://github.com/molit-institute/fhir-util/workflows/Publish/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/molitinstitute/fhir-api/badge.svg?branch=master)](https://coveralls.io/github/molitinstitute/fhir-api?branch=master)
 ![npm](https://img.shields.io/npm/v/@molit/fhir-api.svg)
 ![NPM](https://img.shields.io/npm/l/@molit/fhir-api.svg)
 
