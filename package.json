@@ -35,9 +35,6 @@
     "prettier": "^2.2.1",
     "regenerator-runtime": "^0.13.5"
   },
-  "prettier": {
-    "printWidth": 240
-  },
   "author": "MOLIT Institut gGmbH",
   "license": "Apache-2.0"
 }
