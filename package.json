@@ -18,22 +18,22 @@
     "API"
   ],
   "dependencies": {
-    "axios": "^0.21.1",
-    "core-js": "^3.8.2",
-    "lodash": "^4.17.15",
-    "qs": "^6.9.6"
+    "axios": "^0.21.4",
+    "core-js": "^3.18.2",
+    "lodash": "^4.17.21",
+    "qs": "^6.10.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "chai": "^4.2.0",
-    "eslint": "^7.18.0",
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1",
-    "regenerator-runtime": "^0.13.5"
+    "eslint-plugin-prettier": "^3.4.1",
+    "jest": "^27.2.4",
+    "prettier": "^2.4.1",
+    "regenerator-runtime": "^0.13.9"
   },
   "author": "MOLIT Institut gGmbH",
   "license": "Apache-2.0"
