@@ -21,9 +21,9 @@ export function fetchByUrl(url, params = {}, token, basicAuth) {
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -65,9 +65,9 @@ export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token,
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -105,9 +105,9 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token, ba
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -175,9 +175,9 @@ export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token
   }
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -225,9 +225,9 @@ export function submitResource(fhirBaseUrl, resource, token, basicAuth) {
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -260,9 +260,9 @@ export function submitResourceToUrl(baseUrl, resource, token, basicAuth) {
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -282,7 +282,7 @@ export function submitResourceToUrl(baseUrl, resource, token, basicAuth) {
  * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function updateResource(fhirBaseUrl, resource, token ,basicAuth) {
+export function updateResource(fhirBaseUrl, resource, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
@@ -306,9 +306,9 @@ export function updateResource(fhirBaseUrl, resource, token ,basicAuth) {
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -350,9 +350,9 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token, b
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -398,9 +398,9 @@ export function deleteResource(fhirBaseUrl, resource, token, basicAuth) {
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
@@ -441,9 +441,9 @@ export function deleteResourceById(fhirBaseUrl, resourceType, id, token, basicAu
   };
 
   if (token) {
-    if(basicAuth){
+    if (basicAuth) {
       headers.Authorization = "Basic " + token;
-    }else{
+    } else {
       headers.Authorization = "Bearer " + token;
     }
   }
