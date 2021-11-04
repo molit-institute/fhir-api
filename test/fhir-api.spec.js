@@ -77,6 +77,22 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
     });
+
+    test("fetchByUrl token missing", async () => {
+      try {
+        await fhirApi.fetchByUrl(FHIR_BASE_URL, PARAMS, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("fetchByUrl basicAuth missing", async () => {
+      try {
+        await fhirApi.fetchByUrl(FHIR_BASE_URL, PARAMS, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("fetchResource", () => {
@@ -152,6 +168,22 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_RESOURCE_ID_MISSING);
       }
     });
+
+    test("fetchResource token missing", async () => {
+      try {
+        await fhirApi.fetchResource(FHIR_BASE_URL, RESOURCE_TYPE, ID, PARAMS, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("fetchResource basicAuth missing", async () => {
+      try {
+        await fhirApi.fetchResource(FHIR_BASE_URL, RESOURCE_TYPE, ID, PARAMS, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("fetchResources", () => {
@@ -214,6 +246,22 @@ describe("FHIR API", () => {
       try {
         await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE_INVALID);
         throw new Error("Test should fail");
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("fetchResources token missing", async () => {
+      try {
+        await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, PARAMS, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("fetchResources basicAuth missing", async () => {
+      try {
+        await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, PARAMS, TOKEN, null);
       } catch (e) {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
@@ -294,6 +342,22 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
     });
+
+    test("fetchResourcesPost token missing", async () => {
+      try {
+        await fhirApi.fetchResourcesPost(FHIR_BASE_URL, RESOURCE_TYPE, PARAMS, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("fetchResourcesPost basicAuth missing", async () => {
+      try {
+        await fhirApi.fetchResourcesPost(FHIR_BASE_URL, RESOURCE_TYPE, PARAMS, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("submitResource", () => {
@@ -359,6 +423,22 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_INVALID);
       }
     });
+
+    test("submitResource token missing", async () => {
+      try {
+        await fhirApi.submitResource(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("submitResource basicAuth missing", async () => {
+      try {
+        await fhirApi.submitResource(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("submitResourceToUrl", () => {
@@ -413,6 +493,22 @@ describe("FHIR API", () => {
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_MISSING);
+      }
+    });
+
+    test("submitResourceToUrl token missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL, RESOURCE_TYPE, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("submitResourceToUrl basicAuth missing", async () => {
+      try {
+        await fhirApi.submitResourceToUrl(FHIR_BASE_URL, RESOURCE_TYPE, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
     });
   });
@@ -491,6 +587,22 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_PUT_RESOURCE_ID_MISSING);
       }
     });
+
+    test("updateResource token missing", async () => {
+      try {
+        await fhirApi.updateResource(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("updateResource basicAuth missing", async () => {
+      try {
+        await fhirApi.updateResource(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("updateResourceByUrl", () => {
@@ -554,6 +666,22 @@ describe("FHIR API", () => {
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_SUBMIT_RESOURCE_INVALID);
+      }
+    });
+
+    test("updateResourceByUrl token missing", async () => {
+      try {
+        await fhirApi.updateResourceByUrl(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, PARAMS, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("updateResourceByUrl basicAuth missing", async () => {
+      try {
+        await fhirApi.updateResourceByUrl(FHIR_BASE_URL, { resourceType: RESOURCE_TYPE, id: ID }, PARAMS, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
     });
   });
@@ -632,6 +760,39 @@ describe("FHIR API", () => {
         expect(e.message).toBe(ERROR_DELETE_RESOURCE_ID_MISSING);
       }
     });
+
+    test("deleteResource token missing", async () => {
+      try {
+        await fhirApi.deleteResource(
+          FHIR_BASE_URL,
+          {
+            resourceType: RESOURCE_TYPE,
+            id: ID
+          },
+          null,
+          false
+        );
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("deleteResource basicAuth missing", async () => {
+      try {
+        await fhirApi.deleteResource(
+          FHIR_BASE_URL,
+          {
+            resourceType: RESOURCE_TYPE,
+            id: ID
+          },
+          ID,
+          TOKEN,
+          null
+        );
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
   });
 
   describe("deleteResourceById", () => {
@@ -705,6 +866,22 @@ describe("FHIR API", () => {
         throw new Error("Test should fail");
       } catch (e) {
         expect(e.message).toBe(ERROR_DELETE_RESOURCE_ID_MISSING);
+      }
+    });
+
+    test("deleteResourceById token missing", async () => {
+      try {
+        await fhirApi.deleteResourceById(FHIR_BASE_URL, RESOURCE_TYPE, ID, null, false);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
+      }
+    });
+
+    test("deleteResourceById basicAuth missing", async () => {
+      try {
+        await fhirApi.deleteResourceById(FHIR_BASE_URL, RESOURCE_TYPE, ID, TOKEN, null);
+      } catch (e) {
+        expect(e.message).toBe(ERROR_HTTP_AXIOS);
       }
     });
   });
