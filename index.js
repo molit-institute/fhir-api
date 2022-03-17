@@ -8,9 +8,10 @@ import { get } from "lodash";
  * @param {String} url - the url
  * @param {Object} [params = {}] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchByUrl(url, params = {}, token) {
+export function fetchByUrl(url, params = {}, token, basicAuth) {
   if (!url) {
     throw new Error("Fetching the resource(s) failed because the given url was null or undefined");
   }
@@ -20,7 +21,11 @@ export function fetchByUrl(url, params = {}, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -38,9 +43,10 @@ export function fetchByUrl(url, params = {}, token) {
  * @param {String} id - id of the resource to be fetched
  * @param {Object} [params = {}] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token) {
+export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
@@ -59,7 +65,11 @@ export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token)
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -77,9 +87,10 @@ export function fetchResource(fhirBaseUrl, resourceType, id, params = {}, token)
  * @param {String} resourceType - the type of the FHIR resource
  * @param {Object} [params = {}] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
+export function fetchResources(fhirBaseUrl, resourceType, params = {}, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
@@ -94,7 +105,11 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -115,9 +130,10 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {String} [token] - the authentication token
  * @param {String} url - the url of the resource
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Array} - the cpncept
  */
-export async function fetchValueSetConceptByUrl(fhirBaseUrl, token, url) {
+export async function fetchValueSetConceptByUrl(fhirBaseUrl, token, url, basicAuth) {
   const response = await fetchResources(fhirBaseUrl, "ValueSet", { url }, token);
   const valueSet = mapFhirResponse(response)[0];
 
@@ -135,9 +151,10 @@ export async function fetchValueSetConceptByUrl(fhirBaseUrl, token, url) {
  * @param {String} resourceType - the type of the FHIR resource
  * @param {Object} [params = {}] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token) {
+export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Fetching the resources failed because the given fhirBaseUrl was null or undefined");
   }
@@ -158,7 +175,11 @@ export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token
   }
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -174,9 +195,10 @@ export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} resource - resource that is supposed to be submitted
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function submitResource(fhirBaseUrl, resource, token) {
+export function submitResource(fhirBaseUrl, resource, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
@@ -203,7 +225,11 @@ export function submitResource(fhirBaseUrl, resource, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -218,8 +244,9 @@ export function submitResource(fhirBaseUrl, resource, token) {
  * @param {*} baseUrl
  * @param {*} resource
  * @param {*} token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  */
-export function submitResourceToUrl(baseUrl, resource, token) {
+export function submitResourceToUrl(baseUrl, resource, token, basicAuth) {
   if (!baseUrl) {
     throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
@@ -233,7 +260,11 @@ export function submitResourceToUrl(baseUrl, resource, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -248,9 +279,10 @@ export function submitResourceToUrl(baseUrl, resource, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} resource - resource that is supposed to be submitted
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function updateResource(fhirBaseUrl, resource, token) {
+export function updateResource(fhirBaseUrl, resource, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
@@ -274,7 +306,11 @@ export function updateResource(fhirBaseUrl, resource, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -291,9 +327,10 @@ export function updateResource(fhirBaseUrl, resource, token) {
  * @param {Object} resource - resource that is supposed to be submitted
  * @param {Object} [params = {}] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
+export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not submitted because the given fhirBaseUrl was null or undefined");
   }
@@ -313,7 +350,11 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -330,9 +371,10 @@ export function updateResourceByUrl(fhirBaseUrl, resource, params = {}, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} resource - resource that is supposed to be deleted
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function deleteResource(fhirBaseUrl, resource, token) {
+export function deleteResource(fhirBaseUrl, resource, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not deleted because the given fhirBaseUrl was null or undefined");
   }
@@ -356,7 +398,11 @@ export function deleteResource(fhirBaseUrl, resource, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -372,9 +418,10 @@ export function deleteResource(fhirBaseUrl, resource, token) {
  * @param {Object} resourceType - the type of the FHIR resource
  * @param {String} id - id of the resource to be deleted
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
+export function deleteResourceById(fhirBaseUrl, resourceType, id, token, basicAuth) {
   if (!fhirBaseUrl) {
     throw new Error("Resource was not deleted because the given fhirBaseUrl was null or undefined");
   }
@@ -394,7 +441,11 @@ export function deleteResourceById(fhirBaseUrl, resourceType, id, token) {
   };
 
   if (token) {
-    headers.Authorization = "Bearer " + token;
+    if (basicAuth) {
+      headers.Authorization = "Basic " + token;
+    } else {
+      headers.Authorization = "Bearer " + token;
+    }
   }
 
   const options = {
@@ -479,9 +530,10 @@ export function mapFhirResponse(res) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchConformanceStatement(fhirBaseUrl, params, token) {
+export function fetchConformanceStatement(fhirBaseUrl, params, token, basicAuth) {
   const resourceType = `metadata`;
   return fetchResources(fhirBaseUrl, resourceType, params, token);
 }
@@ -493,11 +545,12 @@ export function fetchConformanceStatement(fhirBaseUrl, params, token) {
  * @param {String} id - id of the Patient to be fetched
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchPatient(fhirBaseUrl, id, params, token) {
+export function fetchPatient(fhirBaseUrl, id, params, token, basicAuth) {
   const resourceType = `Patient`;
-  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token, basicAuth);
 }
 
 /**
@@ -506,10 +559,11 @@ export function fetchPatient(fhirBaseUrl, id, params, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchPatients(fhirBaseUrl, params, token) {
-  return fetchResources(fhirBaseUrl, "Patient", params, token);
+export function fetchPatients(fhirBaseUrl, params, token, basicAuth) {
+  return fetchResources(fhirBaseUrl, "Patient", params, token, basicAuth);
 }
 
 /**
@@ -519,11 +573,12 @@ export function fetchPatients(fhirBaseUrl, params, token) {
  * @param {String} id - id of the Questionnaire to be fetched
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchQuestionnaire(fhirBaseUrl, id, params, token) {
+export function fetchQuestionnaire(fhirBaseUrl, id, params, token, basicAuth) {
   const resourceType = `Questionnaire`;
-  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token, basicAuth);
 }
 
 /**
@@ -532,10 +587,11 @@ export function fetchQuestionnaire(fhirBaseUrl, id, params, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchQuestionnaires(fhirBaseUrl, params, token) {
-  return fetchResources(fhirBaseUrl, "Questionnaire", params, token);
+export function fetchQuestionnaires(fhirBaseUrl, params, token, basicAuth) {
+  return fetchResources(fhirBaseUrl, "Questionnaire", params, token, basicAuth);
 }
 
 /**
@@ -545,11 +601,12 @@ export function fetchQuestionnaires(fhirBaseUrl, params, token) {
  * @param {String} id - id of the ValueSet to be fetched
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchValueSet(fhirBaseUrl, id, params, token) {
+export function fetchValueSet(fhirBaseUrl, id, params, token, basicAuth) {
   const resourceType = `ValueSet`;
-  return fetchResource(fhirBaseUrl, resourceType, id, params, token);
+  return fetchResource(fhirBaseUrl, resourceType, id, params, token, basicAuth);
 }
 
 /**
@@ -558,8 +615,9 @@ export function fetchValueSet(fhirBaseUrl, id, params, token) {
  * @param {String} fhirBaseUrl - the base URL of the FHIR server
  * @param {Object} [params] - the FHIR query params
  * @param {String} [token] - the authentication token
+ * @param {Boolean} basicAuth - boolean parameter that changes the authorization header to Basic if true
  * @returns {Promise} Promise object representing the response to the http call
  */
-export function fetchValueSets(fhirBaseUrl, params, token) {
-  return fetchResources(fhirBaseUrl, "ValueSet", params, token);
+export function fetchValueSets(fhirBaseUrl, params, token, basicAuth) {
+  return fetchResources(fhirBaseUrl, "ValueSet", params, token, basicAuth);
 }
