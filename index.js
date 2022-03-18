@@ -168,11 +168,7 @@ export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token
     "Cache-Control": "no-cache"
   };
 
-  let urlSearchParams = new URLSearchParams();
-
-  for (let p in params) {
-    urlSearchParams.append(p, params[p]);
-  }
+  const encodedParams = qs.stringify(params, { indices: false, encode: false });
 
   if (token) {
     if (basicAuth) {
@@ -186,7 +182,7 @@ export function fetchResourcesPost(fhirBaseUrl, resourceType, params = {}, token
     headers
   };
 
-  return axios.post(url, urlSearchParams, options);
+  return axios.post(url, encodedParams, options);
 }
 
 /**
