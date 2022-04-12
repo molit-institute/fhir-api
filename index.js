@@ -119,6 +119,8 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token, ba
 
   if (!(params instanceof URLSearchParams)) {
     options.paramsSerializer = params => qs.stringify(params, { arrayFormat: "repeat" });
+  } else {
+    options.params = serializeUrlParams(params);
   }
 
   return axios.get(url, options);
@@ -616,4 +618,16 @@ export function fetchValueSet(fhirBaseUrl, id, params, token, basicAuth) {
  */
 export function fetchValueSets(fhirBaseUrl, params, token, basicAuth) {
   return fetchResources(fhirBaseUrl, "ValueSet", params, token, basicAuth);
+}
+
+/**
+ * Converts URLSearchParams in a string that a FHIR server can understand.
+ *
+ * @param {URLSearchParams} params - the URL search params
+ */
+export function serializeUrlParams(params) {
+  if (!(params instanceof URLSearchParams)) {
+    throw new Error("Params not of type URLSearchParams.");
+  }
+  return params.toString();
 }

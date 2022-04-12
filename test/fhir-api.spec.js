@@ -22,6 +22,12 @@ const PARAMS = {
 };
 const URL_SEARCH_PARAMS = new URLSearchParams();
 URL_SEARCH_PARAMS.append("_lastUpdated", "gt2010-10-01");
+URL_SEARCH_PARAMS.append("subject", "65");
+URL_SEARCH_PARAMS.append("code", "C159580");
+URL_SEARCH_PARAMS.append("date", "ge2010-10-01T00:00");
+URL_SEARCH_PARAMS.append("date", "le2012-10-01T23:59");
+URL_SEARCH_PARAMS.append("_count", 1000);
+const STRING_PARAMS = "_lastUpdated=gt2010-10-01&subject=65&code=C159580&date=ge2010-10-01T00%3A00&date=le2012-10-01T23%3A59&_count=1000";
 
 const ERROR_FETCH_BY_URL_URL_MISSING = "Fetching the resource(s) failed because the given url was null or undefined";
 const ERROR_FHIR_BASE_URL_MISSING = "Fetching the resources failed because the given fhirBaseUrl was null or undefined";
@@ -192,6 +198,15 @@ describe("FHIR API", () => {
       axios.get.mockResolvedValue(resp);
 
       const data = (await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, {}, TOKEN)).data;
+      expect(data).toBeDefined();
+      expect(data).toEqual(resp.data);
+    });
+
+    test("fetchResources valid with url search params", async () => {
+      const resp = { data: responsePatients };
+      axios.get.mockResolvedValue(resp);
+
+      const data = (await fhirApi.fetchResources(FHIR_BASE_URL, RESOURCE_TYPE, URL_SEARCH_PARAMS, TOKEN)).data;
       expect(data).toBeDefined();
       expect(data).toEqual(resp.data);
     });
@@ -930,6 +945,13 @@ describe("FHIR API", () => {
 
       resources = fhirApi.mapFhirResponse({ data: { entry: {} } });
       expect(resources).toEqual([]);
+    });
+  });
+
+  describe("serialize functions", () => {
+    test("serializeUrlParams", () => {
+      const stringParams = fhirApi.serializeUrlParams(URL_SEARCH_PARAMS);
+      expect(stringParams).toEqual(STRING_PARAMS);
     });
   });
 
