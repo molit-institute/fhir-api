@@ -99,7 +99,7 @@ export function fetchResources(fhirBaseUrl, resourceType, params = {}, token, ba
     throw new Error("Fetching the resources failed because the given resourceType was null or undefined");
   }
 
-  const url = `${fhirBaseUrl}/${resourceType}`;
+  let url = `${fhirBaseUrl}/${resourceType}`;
   const headers = {
     "Cache-Control": "no-cache"
   };
