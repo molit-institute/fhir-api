@@ -33,7 +33,7 @@ node_modules
 
 # src
 test
-index.js
+#index.js
 .*
 jest.config.js
 package-lock.json

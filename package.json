@@ -3,6 +3,8 @@
   "version": "1.0.39",
   "description": "This package can be used to access FHIR APIs",
   "main": "dist/index.js",
+  "module": "index.js",
+  "unpkg": "dist/fhir-api.umd.js",
   "repository": "github:molitinstitute/fhir-api",
   "homepage": "https://docs.molit.eu/fhir-api/",
   "scripts": {
@@ -11,7 +13,8 @@
     "lint:fix": "eslint ./index.js test --fix",
     "doc": "jsdoc index.js README.md -d ./jsdoc/",
     "doc:localJsdoc": "./node_modules/.bin/jsdoc index.js README.md -d ./jsdoc/",
-    "build": "babel index.js --out-dir dist"
+    "build": "babel index.js --out-dir dist",
+    "build:webpack": "webpack"
   },
   "keywords": [
     "FHIR",
@@ -19,7 +22,7 @@
   ],
   "dependencies": {
     "axios": "^0.26.1",
-    "core-js": "^3.21.1",
+    "core-js": "^3.22.1",
     "lodash": "^4.17.21",
     "qs": "^6.10.3"
   },
@@ -33,7 +36,9 @@
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.5.1",
     "prettier": "^2.6.2",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "author": "MOLIT Institut gGmbH",
   "license": "Apache-2.0"

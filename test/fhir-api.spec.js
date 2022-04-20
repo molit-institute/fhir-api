@@ -1,7 +1,5 @@
 import axios from "axios";
 import * as fhirApi from "../index";
-import "core-js/stable";
-import "regenerator-runtime/runtime";
 
 import bundle from "./fixtures/Bundle.json";
 import questionnaireResponse from "./fixtures/QuestionnaireResponse.json";
