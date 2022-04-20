@@ -76,8 +76,7 @@ jobs:
 
       - name: Generate documentation
         run: |
-          npm i jsdoc
-          npm run doc:localJsdoc
+          npm run doc
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1

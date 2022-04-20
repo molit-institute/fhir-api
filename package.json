@@ -12,7 +12,6 @@
     "lint": "eslint ./index.js test",
     "lint:fix": "eslint ./index.js test --fix",
     "doc": "jsdoc index.js README.md -d ./jsdoc/",
-    "doc:localJsdoc": "./node_modules/.bin/jsdoc index.js README.md -d ./jsdoc/",
     "build": "babel index.js --out-dir dist",
     "build:webpack": "webpack"
   },
@@ -35,6 +34,7 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "jest": "^27.5.1",
+    "jsdoc": "^3.6.10",
     "prettier": "^2.6.2",
     "regenerator-runtime": "^0.13.9",
     "webpack": "^5.72.0",

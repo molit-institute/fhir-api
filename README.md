@@ -35,6 +35,10 @@ import { fetchQuestionnaires } from "@molit/fhir-api";
 let name = fetchQuestionnaires(fhirBaseUrl);
 ```
 
+### Browser Example
+
+An example for browser usage can be seen here: https://jsfiddle.net/molitinstitut/28wrakeh/24/
+
 ### Documentation
 
 See full documentation here: https://docs.molit.eu/fhir-api/
